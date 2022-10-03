@@ -13,7 +13,7 @@ namespace WindowsFormsMvp.Model
         void delete(int id);
         PetModel GetById(int id);
         IEnumerable<PetModel> GetAll();
-        IEnumerable<PetModel> GetByValue();
+        IEnumerable<PetModel> GetByValue(string value);
 
     }
 }
