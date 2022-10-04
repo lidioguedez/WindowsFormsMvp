@@ -32,6 +32,8 @@ namespace WindowsFormsMvp.Presenter
             this.view.SetPetListBindingSource(petBindingSource);
             //Load Pet list view
             LoadAllPetList();
+            //Grid Focus
+            this.view.GridFocus();
             //Show view
             this.view.Show();
         }
@@ -49,16 +51,17 @@ namespace WindowsFormsMvp.Presenter
                 petList = repository.GetByValue(this.view.SearchValue);
             else petList = repository.GetAll();
             petBindingSource.DataSource = petList;
+            this.view.GridFocus();
         }
 
         private void CancelAction(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void SavePet(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void DeleteSelectedPet(object sender, EventArgs e)
@@ -73,7 +76,7 @@ namespace WindowsFormsMvp.Presenter
 
         private void AddNewPet(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
     }

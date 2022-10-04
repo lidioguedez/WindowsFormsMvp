@@ -22,17 +22,49 @@ namespace WindowsFormsMvp.View
             InitializeComponent();
             AssociateAndRaiseViewEvents();
             tabControl.TabPages.Remove(tabPagePetDetail);
+            this.dataGridView1.Select();
         }
 
         private void AssociateAndRaiseViewEvents()
         {
-            btnSerach.Click += delegate { SearchEvent?.Invoke(this,EventArgs.Empty); };
             txtSearch.KeyDown += (s, e) =>
             {
-                if (e.KeyCode == Keys.Enter )
+                if (e.KeyCode == Keys.Enter)
                     SearchEvent?.Invoke(this, EventArgs.Empty);
+                //Ejemplo directo sin metodo
+                // this.dataGridView1.Select();
             };
-
+            btnSerach.Click += (s, e) => 
+            {
+                SearchEvent?.Invoke(this, EventArgs.Empty);
+                //Ejemplo directo sin metodo
+               // this.dataGridView1.Select();
+            };
+            btnAddNew.Click += delegate { 
+                AddNewEvent?.Invoke(this, EventArgs.Empty);
+                tabControl.TabPages.Remove(tabPageList);
+                tabControl.TabPages.Add(tabPagePetDetail);
+                tabPagePetDetail.Text = "Add New Pet";
+            };
+            btnEdit.Click += delegate { 
+                EditEvent?.Invoke(this, EventArgs.Empty);
+                tabControl.TabPages.Remove(tabPageList);
+                tabControl.TabPages.Add(tabPagePetDetail);
+                tabPagePetDetail.Text = "Edit Pet";
+            };
+            btnDelete.Click += delegate { DeleteEvent?.Invoke(this, EventArgs.Empty); };
+            btnSave.Click += delegate { 
+                SaveEvent?.Invoke(this, EventArgs.Empty);
+                tabControl.TabPages.Remove(tabPagePetDetail);
+                tabControl.TabPages.Add(tabPageList);
+                tabPagePetDetail.Text = "Pet list";
+            };
+            btnCancel.Click += delegate { 
+                CancelEvent?.Invoke(this, EventArgs.Empty);
+                tabControl.TabPages.Remove(tabPagePetDetail);
+                tabControl.TabPages.Add(tabPageList);
+                tabPagePetDetail.Text = "Pet list";
+            };
 
         }
 
@@ -86,5 +118,29 @@ namespace WindowsFormsMvp.View
             dataGridView1.DataSource = petList;
         }
 
+        private static PetView instance;
+        public static PetView GetInstace(Form parentContainer)
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new PetView();
+                instance.MdiParent = parentContainer;
+                instance.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                    instance.WindowState = FormWindowState.Normal;
+                instance.BringToFront();
+            }
+
+            return instance;
+        }
+
+        //Ejemplo con Metodo
+        public void GridFocus()
+        {
+            this.dataGridView1.Select();
+        }
     }
 }

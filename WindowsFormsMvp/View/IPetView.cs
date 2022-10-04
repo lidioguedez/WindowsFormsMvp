@@ -28,6 +28,7 @@ namespace WindowsFormsMvp.View
         event EventHandler CancelEvent;
 
         //Methods
+        void GridFocus();
         void SetPetListBindingSource(BindingSource petList);
         void Show(); 
 

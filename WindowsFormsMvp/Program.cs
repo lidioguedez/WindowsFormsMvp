@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsMvp.Model;
 using WindowsFormsMvp.View;
+using System.Configuration;
+using WindowsFormsMvp.Presenter;
 
 namespace WindowsFormsMvp
 {
@@ -17,7 +20,13 @@ namespace WindowsFormsMvp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PetView());
+            string sqlConnection = ConfigurationManager.ConnectionStrings["sqlConnection"].ConnectionString;
+            //IPetView view = new PetView();
+            //IPetRepository repository = new PetRepository(sqlConnection);
+            //new PetPresenter(view,repository);
+            IMainView view = new MainView();
+            new MainPresenter(view, sqlConnection);
+            Application.Run((Form)view);
         }
     }
 }

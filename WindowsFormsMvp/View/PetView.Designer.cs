@@ -29,6 +29,7 @@ namespace WindowsFormsMvp.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
@@ -115,7 +116,7 @@ namespace WindowsFormsMvp.View
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(933, 128);
+            this.btnDelete.Location = new System.Drawing.Point(935, 164);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(115, 30);
             this.btnDelete.TabIndex = 7;
@@ -124,7 +125,7 @@ namespace WindowsFormsMvp.View
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(933, 92);
+            this.btnEdit.Location = new System.Drawing.Point(935, 128);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(115, 30);
             this.btnEdit.TabIndex = 6;
@@ -133,7 +134,7 @@ namespace WindowsFormsMvp.View
             // 
             // btnAddNew
             // 
-            this.btnAddNew.Location = new System.Drawing.Point(933, 56);
+            this.btnAddNew.Location = new System.Drawing.Point(935, 92);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(115, 30);
             this.btnAddNew.TabIndex = 5;
@@ -142,15 +143,39 @@ namespace WindowsFormsMvp.View
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(27, 56);
+            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.Location = new System.Drawing.Point(27, 92);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(883, 511);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridView1.RowTemplate.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.ShowEditingIcon = false;
+            this.dataGridView1.Size = new System.Drawing.Size(883, 501);
             this.dataGridView1.TabIndex = 4;
             // 
             // btnSerach
             // 
-            this.btnSerach.Location = new System.Drawing.Point(800, 25);
+            this.btnSerach.Location = new System.Drawing.Point(800, 54);
             this.btnSerach.Name = "btnSerach";
             this.btnSerach.Size = new System.Drawing.Size(110, 26);
             this.btnSerach.TabIndex = 3;
@@ -160,7 +185,7 @@ namespace WindowsFormsMvp.View
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(27, 49);
+            this.panel2.Location = new System.Drawing.Point(27, 77);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(750, 1);
             this.panel2.TabIndex = 2;
@@ -168,7 +193,7 @@ namespace WindowsFormsMvp.View
             // txtSearch
             // 
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSearch.Location = new System.Drawing.Point(27, 29);
+            this.txtSearch.Location = new System.Drawing.Point(27, 57);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(750, 19);
             this.txtSearch.TabIndex = 1;
@@ -176,7 +201,7 @@ namespace WindowsFormsMvp.View
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 7);
+            this.label2.Location = new System.Drawing.Point(37, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 20);
             this.label2.TabIndex = 0;
@@ -335,6 +360,7 @@ namespace WindowsFormsMvp.View
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "PetView";
             this.Text = "PetView";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl.ResumeLayout(false);
@@ -356,7 +382,6 @@ namespace WindowsFormsMvp.View
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnAddNew;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnSerach;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtSearch;
@@ -376,5 +401,6 @@ namespace WindowsFormsMvp.View
         private System.Windows.Forms.TextBox txtPetName;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtPetId;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
