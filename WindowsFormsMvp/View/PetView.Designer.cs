@@ -29,7 +29,7 @@ namespace WindowsFormsMvp.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
@@ -150,16 +150,17 @@ namespace WindowsFormsMvp.View
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.SizeAll;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.Location = new System.Drawing.Point(27, 92);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -209,20 +210,20 @@ namespace WindowsFormsMvp.View
             // 
             // tabPagePetDetail
             // 
-            this.tabPagePetDetail.Controls.Add(this.label6);
-            this.tabPagePetDetail.Controls.Add(this.label5);
-            this.tabPagePetDetail.Controls.Add(this.label4);
-            this.tabPagePetDetail.Controls.Add(this.label3);
-            this.tabPagePetDetail.Controls.Add(this.btnCancel);
-            this.tabPagePetDetail.Controls.Add(this.btnSave);
-            this.tabPagePetDetail.Controls.Add(this.panel6);
-            this.tabPagePetDetail.Controls.Add(this.txtPetColour);
-            this.tabPagePetDetail.Controls.Add(this.panel5);
-            this.tabPagePetDetail.Controls.Add(this.txtPetType);
-            this.tabPagePetDetail.Controls.Add(this.panel4);
-            this.tabPagePetDetail.Controls.Add(this.txtPetName);
             this.tabPagePetDetail.Controls.Add(this.panel3);
+            this.tabPagePetDetail.Controls.Add(this.label6);
+            this.tabPagePetDetail.Controls.Add(this.label3);
             this.tabPagePetDetail.Controls.Add(this.txtPetId);
+            this.tabPagePetDetail.Controls.Add(this.panel6);
+            this.tabPagePetDetail.Controls.Add(this.label5);
+            this.tabPagePetDetail.Controls.Add(this.txtPetColour);
+            this.tabPagePetDetail.Controls.Add(this.txtPetName);
+            this.tabPagePetDetail.Controls.Add(this.btnSave);
+            this.tabPagePetDetail.Controls.Add(this.label4);
+            this.tabPagePetDetail.Controls.Add(this.panel5);
+            this.tabPagePetDetail.Controls.Add(this.panel4);
+            this.tabPagePetDetail.Controls.Add(this.btnCancel);
+            this.tabPagePetDetail.Controls.Add(this.txtPetType);
             this.tabPagePetDetail.Location = new System.Drawing.Point(4, 29);
             this.tabPagePetDetail.Name = "tabPagePetDetail";
             this.tabPagePetDetail.Padding = new System.Windows.Forms.Padding(3);
@@ -234,7 +235,7 @@ namespace WindowsFormsMvp.View
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(37, 191);
+            this.label6.Location = new System.Drawing.Point(37, 210);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 20);
             this.label6.TabIndex = 16;
@@ -243,7 +244,7 @@ namespace WindowsFormsMvp.View
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(305, 114);
+            this.label5.Location = new System.Drawing.Point(305, 133);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 20);
             this.label5.TabIndex = 15;
@@ -252,7 +253,7 @@ namespace WindowsFormsMvp.View
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(37, 114);
+            this.label4.Location = new System.Drawing.Point(37, 133);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 20);
             this.label4.TabIndex = 14;
@@ -261,7 +262,7 @@ namespace WindowsFormsMvp.View
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 42);
+            this.label3.Location = new System.Drawing.Point(37, 61);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 20);
             this.label3.TabIndex = 13;
@@ -269,26 +270,26 @@ namespace WindowsFormsMvp.View
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(340, 309);
+            this.btnCancel.Location = new System.Drawing.Point(340, 328);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(126, 38);
-            this.btnCancel.TabIndex = 12;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(80, 309);
+            this.btnSave.Location = new System.Drawing.Point(80, 328);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(126, 38);
-            this.btnSave.TabIndex = 11;
+            this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Black;
-            this.panel6.Location = new System.Drawing.Point(41, 235);
+            this.panel6.Location = new System.Drawing.Point(41, 254);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(474, 1);
             this.panel6.TabIndex = 10;
@@ -296,15 +297,16 @@ namespace WindowsFormsMvp.View
             // txtPetColour
             // 
             this.txtPetColour.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPetColour.Location = new System.Drawing.Point(41, 214);
+            this.txtPetColour.Location = new System.Drawing.Point(41, 233);
             this.txtPetColour.Name = "txtPetColour";
             this.txtPetColour.Size = new System.Drawing.Size(474, 19);
-            this.txtPetColour.TabIndex = 9;
+            this.txtPetColour.TabIndex = 4;
+            this.txtPetColour.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPetColour_KeyDown);
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Black;
-            this.panel5.Location = new System.Drawing.Point(309, 161);
+            this.panel5.Location = new System.Drawing.Point(309, 180);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(206, 1);
             this.panel5.TabIndex = 8;
@@ -312,15 +314,16 @@ namespace WindowsFormsMvp.View
             // txtPetType
             // 
             this.txtPetType.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPetType.Location = new System.Drawing.Point(309, 140);
+            this.txtPetType.Location = new System.Drawing.Point(309, 159);
             this.txtPetType.Name = "txtPetType";
             this.txtPetType.Size = new System.Drawing.Size(206, 19);
-            this.txtPetType.TabIndex = 7;
+            this.txtPetType.TabIndex = 3;
+            this.txtPetType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPetType_KeyDown);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(41, 158);
+            this.panel4.Location = new System.Drawing.Point(41, 177);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(206, 1);
             this.panel4.TabIndex = 6;
@@ -328,15 +331,16 @@ namespace WindowsFormsMvp.View
             // txtPetName
             // 
             this.txtPetName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPetName.Location = new System.Drawing.Point(41, 137);
+            this.txtPetName.Location = new System.Drawing.Point(41, 156);
             this.txtPetName.Name = "txtPetName";
             this.txtPetName.Size = new System.Drawing.Size(206, 19);
-            this.txtPetName.TabIndex = 5;
+            this.txtPetName.TabIndex = 2;
+            this.txtPetName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPetName_KeyDown);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Location = new System.Drawing.Point(41, 86);
+            this.panel3.Location = new System.Drawing.Point(41, 105);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(206, 1);
             this.panel3.TabIndex = 4;
@@ -344,10 +348,11 @@ namespace WindowsFormsMvp.View
             // txtPetId
             // 
             this.txtPetId.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPetId.Location = new System.Drawing.Point(41, 65);
+            this.txtPetId.Location = new System.Drawing.Point(41, 84);
             this.txtPetId.Name = "txtPetId";
             this.txtPetId.Size = new System.Drawing.Size(206, 19);
-            this.txtPetId.TabIndex = 3;
+            this.txtPetId.TabIndex = 1;
+            this.txtPetId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPetId_KeyDown);
             // 
             // PetView
             // 

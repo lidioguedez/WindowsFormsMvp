@@ -13,7 +13,7 @@ namespace WindowsFormsMvp.View
     public partial class PetView : Form, IPetView
     {
         private string message;
-        private bool isSuccessfu;
+        private bool isSuccessful;
         private bool isEdit;
 
 
@@ -23,6 +23,48 @@ namespace WindowsFormsMvp.View
             AssociateAndRaiseViewEvents();
             tabControl.TabPages.Remove(tabPagePetDetail);
             this.dataGridView1.Select();
+        }
+
+        //Propiedades
+        public string PetID
+        {
+            get { return txtPetId.Text; }
+            set { txtPetId.Text = value; }
+        }
+        public string PetNAme
+        {
+            get { return txtPetName.Text; }
+            set { txtPetName.Text = value; }
+        }
+        public string PetType
+        {
+            get { return txtPetType.Text; }
+            set { txtPetType.Text = value; }
+        }
+        public string PetColour
+        {
+            get { return txtPetColour.Text; }
+            set { txtPetColour.Text = value; }
+        }
+        public string SearchValue
+        {
+            get { return txtSearch.Text; }
+            set { txtSearch.Text = value; }
+        }
+        public bool IsEdit
+        {
+            get { return isEdit; }
+            set { isEdit = value; }
+        }
+        public bool IsSuccessful
+        {
+            get { return isSuccessful; }
+            set { isSuccessful = value; }
+        }
+        public string Message
+        {
+            get { return message; }
+            set { message = value; }
         }
 
         private void AssociateAndRaiseViewEvents()
@@ -46,60 +88,53 @@ namespace WindowsFormsMvp.View
                 tabControl.TabPages.Add(tabPagePetDetail);
                 tabPagePetDetail.Text = "Add New Pet";
             };
-            btnEdit.Click += delegate { 
-                EditEvent?.Invoke(this, EventArgs.Empty);
-                tabControl.TabPages.Remove(tabPageList);
-                tabControl.TabPages.Add(tabPagePetDetail);
-                tabPagePetDetail.Text = "Edit Pet";
+            btnEdit.Click += delegate {
+                EditControl();
             };
-            btnDelete.Click += delegate { DeleteEvent?.Invoke(this, EventArgs.Empty); };
+            btnDelete.Click += delegate {
+                var result = MessageBox.Show("Estas seguro de eliminar la mascota seleccionada", "Advertencia",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    DeleteEvent?.Invoke(this, EventArgs.Empty);
+                    MessageBox.Show(message);
+                }
+            };
             btnSave.Click += delegate { 
                 SaveEvent?.Invoke(this, EventArgs.Empty);
+                if (isSuccessful)
+                {
+                    tabControl.TabPages.Remove(tabPagePetDetail);
+                    tabControl.TabPages.Add(tabPageList);
+                    tabPagePetDetail.Text = "Pet list";
+                }
+               
+                txtSearch.Text = "";
+                dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[0];
+                txtSearch.Focus();
+                MessageBox.Show(message);
+            };
+            btnCancel.Click += delegate {
                 tabControl.TabPages.Remove(tabPagePetDetail);
                 tabControl.TabPages.Add(tabPageList);
                 tabPagePetDetail.Text = "Pet list";
-            };
-            btnCancel.Click += delegate { 
                 CancelEvent?.Invoke(this, EventArgs.Empty);
-                tabControl.TabPages.Remove(tabPagePetDetail);
-                tabControl.TabPages.Add(tabPageList);
-                tabPagePetDetail.Text = "Pet list";
+                this.dataGridView1.Select();
             };
 
-        }
+            dataGridView1.KeyDown += (s, e) =>
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    EditControl();
+                }
+            };
 
-        //Propiedades
-        public string PetID {
-            get { return txtPetId.Text; }
-            set { txtPetId.Text = value; }
-        }
-        public string PetNAme {
-            get { return txtPetName.Text; }
-            set { txtPetName.Text = value; }
-        }
-        public string PetType {
-            get { return txtPetType.Text; }
-            set { txtPetType.Text = value; }
-        }
-        public string PetColour {
-            get { return txtPetColour.Text; }
-            set { txtPetColour.Text = value; }
-        }
-        public string SearchValue {
-            get { return txtSearch.Text; }
-            set { txtSearch.Text = value; }
-        }
-        public bool IsEdit {
-            get { return isEdit; }
-            set { isEdit = value; } 
-        }
-        public bool IsSuccessful {
-            get { return isSuccessfu; }
-            set { IsSuccessful = value; } 
-        }
-        public string Message {
-            get { return message; }
-            set { message = value; } 
+            dataGridView1.CellDoubleClick += delegate
+            {
+                EditControl();
+            };
+
         }
 
 
@@ -111,6 +146,14 @@ namespace WindowsFormsMvp.View
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
 
+        private void EditControl()
+        {
+            EditEvent?.Invoke(this, EventArgs.Empty);
+            tabControl.TabPages.Remove(tabPageList);
+            tabControl.TabPages.Add(tabPagePetDetail);
+            tabPagePetDetail.Text = "Edit Pet";
+            txtPetId.Focus();
+        }
 
         //Metodos
         public void SetPetListBindingSource(BindingSource petList)
@@ -137,10 +180,38 @@ namespace WindowsFormsMvp.View
             return instance;
         }
 
+        
+
         //Ejemplo con Metodo
         public void GridFocus()
         {
             this.dataGridView1.Select();
+        }
+
+        private void txtPetId_KeyDown(object sender, KeyEventArgs e)
+        {
+            goFocusControlTxt(sender,e);
+        }
+
+        private void txtPetName_KeyDown(object sender, KeyEventArgs e)
+        {
+            goFocusControlTxt(sender, e);
+        }
+
+        private void txtPetType_KeyDown(object sender, KeyEventArgs e)
+        {
+            goFocusControlTxt(sender, e);
+        }
+
+        private void txtPetColour_KeyDown(object sender, KeyEventArgs e)
+        {
+            goFocusControlTxt(sender, e);
+        }
+
+        private void goFocusControlTxt(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                SendKeys.Send("{TAB}");
         }
     }
 }

@@ -20,22 +20,59 @@ namespace WindowsFormsMvp.View
 
         public void add(PetModel petModel)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionstring))
+            using (var cmd = new SqlCommand())
+            {
+                connection.Open();
+                cmd.Connection = connection;
+                cmd.CommandText = "Insert into Pet value (@name, @type, @colour)";
+                cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = petModel.name;
+                cmd.Parameters.Add("@type", SqlDbType.NVarChar).Value = petModel.type;
+                cmd.Parameters.Add("@colour", SqlDbType.NVarChar).Value = petModel.colour;
+                cmd.ExecuteNonQuery();
+            }
         }
 
         public void delete(int id)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionstring))
+            using (var cmd = new SqlCommand())
+            {
+                connection.Open();
+                cmd.Connection = connection;
+                cmd.CommandText = "Delete from Pet Where Pet_Id=@id)";
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                cmd.ExecuteNonQuery();
+            }
         }
 
         public void edit(PetModel petModel)
         {
-            throw new NotImplementedException();
+            using (var connection = new SqlConnection(connectionstring))
+            using (var cmd = new SqlCommand())
+            {
+                connection.Open();
+                cmd.Connection = connection;
+                cmd.CommandText = "Update Pet set  Pet_Name=@name, Pet_Type=@type, Pet_Colour=@colour Where Pet_Id=@id";
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = petModel.Id;
+                cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = petModel.name;
+                cmd.Parameters.Add("@type", SqlDbType.NVarChar).Value = petModel.type;
+                cmd.Parameters.Add("@colour", SqlDbType.NVarChar).Value = petModel.colour;
+                cmd.ExecuteNonQuery();
+            }
         }
 
-        public PetModel GetById(int id)
+        public DataTable GetById(int id)
         {
-            throw new NotImplementedException();
+            var pet = new DataTable();
+            using (var connection = new SqlConnection(connectionstring))
+            using (var cmd = new SqlDataAdapter("Select * From Pet where Pet_Id=@id order by Pet_Id desc",connection))
+            {
+                cmd.SelectCommand.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                cmd.Fill(pet);
+            }
+
+            return pet;
         }
 
         public IEnumerable<PetModel> GetAll()
